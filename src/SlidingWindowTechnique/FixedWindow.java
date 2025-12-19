@@ -15,6 +15,7 @@ public class FixedWindow {
         //iniciamos a iterar nustra ventana empezando desde el siguiente elemento de k
 
         value = currentSum;
+        //{8,2,4,10,3,1,0}
         for(int i = k; i < array.length; i++){
             currentSum+= array[i] - array[i - k];
             value = Math.max(value, currentSum);

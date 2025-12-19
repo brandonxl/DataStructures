@@ -1,6 +1,8 @@
 package Hash;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LongestSubstringWithoutRepating3{
     public static void main(String[] args) {
@@ -43,5 +45,20 @@ public class LongestSubstringWithoutRepating3{
             }
         }
         return maxCount;
+    }
+
+    public static  int lengthOfLongestSubstring(String s) {
+        int maxLength  = 0;
+        Set<Character> longestSubstring = new HashSet<>();
+
+        int j = 0;
+        while(j < s.length()){
+            if(!longestSubstring.contains(s.charAt(j))){
+                longestSubstring.add(s.charAt(j));
+            }
+            j++;
+        }
+
+        return maxLength;
     }
 }
