@@ -55,6 +55,40 @@ public class BinaryTree {
         display(node.right, indent + "\t");
     }
 
+    public void prettyDisplay(){
+        prettyDisplay(root, 0);
+    }
+
+    public void prettyDisplay(Node node, int level){
+        if(node == null){
+            return;
+        }
+
+        if(level != 0){
+            for(int i = 0; i < level - 1; i++){
+                System.out.println("|\t\t");
+            }
+            System.out.println("|---------->" + node.value);
+        }else{
+            System.out.println(node.value);
+        }
+        prettyDisplay(node.left, level + 1);
+
+    }
+
+
+    public void preOrder(){
+        preOrder(root);
+    }
+    public void preOrder(Node node){
+        if(node == null){
+            return;
+        }
+        System.out.print(node.value + " -> ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
 
 
 
@@ -77,6 +111,8 @@ public class BinaryTree {
         BinaryTree tree = new BinaryTree();
         tree.populate(scanner);
         tree.display();
+
+        tree.preOrder();
     }
 
 }
